@@ -1,0 +1,1264 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Radar Chart in Markdown},
+  pdfauthor={Marco},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Radar Chart in Markdown}
+\author{Marco}
+\date{2023-06-19}
+
+\begin{document}
+\maketitle
+
+\hypertarget{script-for-a-radar-chart-example-with-r}{%
+\section{Script for a Radar Chart example with
+R}\label{script-for-a-radar-chart-example-with-r}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{0.6389}}@{}}
+\toprule()
+\endhead
+Markdown is an \textbf{easy to use} format for writing reports. It
+resembles what you naturally write every time you compose an email. In
+fact, you may have already used markdown \emph{without realizing it}.
+These websites all rely on markdown formatting. In case word is not
+working use \emph{tinytex::install\_tinytex()} before to start. \\
+* \href{www.github.com}{Github} \\
+* \href{www.stackoverflow.com}{StackOverflow} \\
+* \href{www.reddit.com}{Reddit} \\
+eval = TRUE evaluate the script \\
+echo = FALSE means only the result shown \\
+message = FALSE remove the messages from the report \\
+warnings = FALSE remove the warning messages \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{r-markdown}{%
+\subsection{R Markdown}\label{r-markdown}}
+
+This is an R Markdown document. Markdown is a simple formatting syntax
+for authoring HTML, PDF, and MS Word documents. For more details on
+using R Markdown see \url{http://rmarkdown.rstudio.com}.
+
+When you click the \textbf{Knit} button a document will be generated
+that includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:
+
+\hypertarget{create-data---to-let-the-radar-chart-work-properly-you-need-to-specify-maximum-minumum-and-the-value-of-the-variable.-for-example}{%
+\section{\texorpdfstring{Create Data - To let the radar chart work
+properly you need to specify maximum, minumum and the value of the
+variable. \href{https://www.statology.org/radar-chart-in-r/}{For
+example}:}{Create Data - To let the radar chart work properly you need to specify maximum, minumum and the value of the variable. For example:}}\label{create-data---to-let-the-radar-chart-work-properly-you-need-to-specify-maximum-minumum-and-the-value-of-the-variable.-for-example}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Mon=}\FunctionTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{34}\NormalTok{),}
+                 \AttributeTok{Tue=}\FunctionTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{48}\NormalTok{),}
+                 \AttributeTok{Wed=}\FunctionTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{58}\NormalTok{),}
+                 \AttributeTok{Thu=}\FunctionTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{67}\NormalTok{),}
+                 \AttributeTok{Fri=}\FunctionTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{55}\NormalTok{),}
+                 \AttributeTok{Sat=}\FunctionTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{29}\NormalTok{),}
+                 \AttributeTok{Sun=}\FunctionTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{18}\NormalTok{))}
+
+\CommentTok{\#view data}
+\NormalTok{df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Mon Tue Wed Thu Fri Sat Sun
+## 1 100 100 100 100 100 100 100
+## 2   0   0   0   0   0   0   0
+## 3  34  48  58  67  55  29  18
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Once the data is in this format, we can use the radarchart() function from the }
+\CommentTok{\# fmsb library to create a basic radar chart:}
+
+
+\FunctionTok{radarchart}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+Customizing Radar Charts in R
+
+We can customize the radar chart by using the following arguments:
+
+\begin{itemize}
+\tightlist
+\item
+  pcol: Line color
+\item
+  pfcol: Fill color
+\item
+  plwd: Line width
+\item
+  cglcol: Net color
+\item
+  cglty: Net line type
+\item
+  axislabcol: Axis label color
+\item
+  caxislabels: Vector of axis labels to display
+\item
+  cglwd: Net width
+\item
+  vlcex: Group labels size
+\end{itemize}
+
+Here an example from the previous data frame (NB for radar chart you
+need always the data.frame format):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{radarchart}\NormalTok{(df,}
+           \AttributeTok{axistype=}\DecValTok{1}\NormalTok{, }
+           \AttributeTok{pcol=}\StringTok{\textquotesingle{}pink\textquotesingle{}}\NormalTok{,}
+           \AttributeTok{pfcol=}\FunctionTok{rgb}\NormalTok{(}\FloatTok{0.9}\NormalTok{,}\FloatTok{0.2}\NormalTok{,}\FloatTok{0.5}\NormalTok{,}\FloatTok{0.3}\NormalTok{),}
+           \AttributeTok{plwd=}\DecValTok{3}\NormalTok{, }
+           \AttributeTok{cglcol=}\StringTok{\textquotesingle{}grey\textquotesingle{}}\NormalTok{,}
+           \AttributeTok{cglty=}\DecValTok{1}\NormalTok{,}
+           \AttributeTok{axislabcol=}\StringTok{\textquotesingle{}grey\textquotesingle{}}\NormalTok{,}
+           \AttributeTok{cglwd=}\FloatTok{0.6}\NormalTok{,}
+           \AttributeTok{vlcex=}\FloatTok{1.1}\NormalTok{,}
+           \AttributeTok{title=}\StringTok{\textquotesingle{}Customers per Day\textquotesingle{}}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\hypertarget{second-part}{%
+\section{Second Part}\label{second-part}}
+
+Doing the same but with an average or threshold line - can be useful
+also for other analysis
+\href{https://stackoverflow.com/questions/50353923/generate-radar-charts-with-ggplot2}{Example}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"C:/\_R/R\_visual\_radar/Radar\_chart/data.csv"}\NormalTok{)}
+\FunctionTok{str}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    30 obs. of  5 variables:
+##  $ X    : chr  "Mean_DC1_SAPvsSH" "Mean_DC1_SAPvsTD6" "Mean_DC1_SHvsTD6" "Mean_DC2_SAPvsSH" ...
+##  $ Count: num  -15.26 NaN NaN -7.17 -49.37 ...
+##  $ X1   : chr  "Mean" "Mean" "Mean" "Mean" ...
+##  $ X2   : chr  "DC1" "DC1" "DC1" "DC2" ...
+##  $ X3   : chr  "SAPvsSH" "SAPvsTD6" "SHvsTD6" "SAPvsSH" ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# data \textless{}{-} data[,2:5]}
+\CommentTok{\# str(data)}
+
+
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{data,  }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{X2, }\AttributeTok{y=}\NormalTok{Count, }\AttributeTok{group=}\NormalTok{X3, }\AttributeTok{colour=}\NormalTok{X3)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size=}\DecValTok{5}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Decils"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"\% difference in nº Pk"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{ylim}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{50}\NormalTok{,}\DecValTok{25}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"CL"}\NormalTok{)  }\SpecialCharTok{+} 
+  \FunctionTok{geom\_hline}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{yintercept=}\DecValTok{0}\NormalTok{), }\AttributeTok{lwd=}\DecValTok{1}\NormalTok{, }\AttributeTok{lty=}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_x\_discrete}\NormalTok{(}\AttributeTok{limits=}\FunctionTok{c}\NormalTok{(}\StringTok{"DC1"}\NormalTok{,}\StringTok{"DC2"}\NormalTok{,}\StringTok{"DC3"}\NormalTok{,}\StringTok{"DC4"}\NormalTok{,}\StringTok{"DC5"}\NormalTok{,}\StringTok{"DC6"}\NormalTok{,}\StringTok{"DC7"}\NormalTok{,}\StringTok{"DC8"}\NormalTok{,}\StringTok{"DC9"}\NormalTok{,}\StringTok{"DC10"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+I would like to transform this chart in a radar chart. I tried to use
+ggradar or ggRadar, but unsuccessfully. Something like this would be
+amazing:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{data,  }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{X2, }\AttributeTok{y=}\NormalTok{Count, }\AttributeTok{group=}\NormalTok{X3, }\AttributeTok{colour=}\NormalTok{X3)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size=}\DecValTok{5}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Decils"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"\% difference in nº Pk"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{ylim}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{50}\NormalTok{,}\DecValTok{25}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"CL"}\NormalTok{)  }\SpecialCharTok{+} 
+  \FunctionTok{geom\_hline}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{yintercept=}\DecValTok{0}\NormalTok{), }\AttributeTok{lwd=}\DecValTok{1}\NormalTok{, }\AttributeTok{lty=}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_x\_discrete}\NormalTok{(}\AttributeTok{limits=}\FunctionTok{c}\NormalTok{(}\StringTok{"DC1"}\NormalTok{,}\StringTok{"DC2"}\NormalTok{,}\StringTok{"DC3"}\NormalTok{,}\StringTok{"DC4"}\NormalTok{,}\StringTok{"DC5"}\NormalTok{,}\StringTok{"DC6"}\NormalTok{,}\StringTok{"DC7"}\NormalTok{,}\StringTok{"DC8"}\NormalTok{,}\StringTok{"DC9"}\NormalTok{,}\StringTok{"DC10"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{coord\_polar}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\hypertarget{third-part---the-most-important-10}{%
+\section{Third Part - The most important
+10+}\label{third-part---the-most-important-10}}
+
+Followed by this
+\href{https://www.datanovia.com/en/blog/beautiful-radar-chart-in-r-using-fmsb-and-ggplot-packages/}{website}
+Beautiful Radar Chart in R using FMSB and GGPlot Packages
+
+A radar chart, also known as a spider plot is used to visualize the
+values or scores assigned to an individual over multiple quantitative
+variables, where each variable corresponds to a specific axis.
+
+This article describes how to create a radar chart in R using two
+different packages: the fmsb or the ggradar R packages.
+
+Note that, the fmsb radar chart is an R base plot. The ggradar package
+builds a ggplot spider plot.
+
+You will learn:
+
+\begin{itemize}
+\tightlist
+\item
+  how to create a beautiful fmsb radar chart
+\item
+  how to create ggplot radar chart
+\item
+  alternatives to radar charts
+\end{itemize}
+
+\textbf{Demo data}
+
+We'll use a demo data containing exam scores for 3 students on 9 topics
+(Biology, Physics, etc). The scores range from 0 to 20. Columns are
+quantitative variables and rows are individuals:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Demo data}
+\NormalTok{exam\_scores }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{row.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Student.1"}\NormalTok{, }\StringTok{"Student.2"}\NormalTok{, }\StringTok{"Student.3"}\NormalTok{),}
+  \AttributeTok{Biology =} \FunctionTok{c}\NormalTok{(}\FloatTok{7.9}\NormalTok{, }\FloatTok{3.9}\NormalTok{, }\FloatTok{9.4}\NormalTok{),}
+  \AttributeTok{Physics =} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+  \AttributeTok{Maths =} \FunctionTok{c}\NormalTok{(}\FloatTok{3.7}\NormalTok{, }\FloatTok{11.5}\NormalTok{, }\FloatTok{2.5}\NormalTok{),}
+  \AttributeTok{Sport =} \FunctionTok{c}\NormalTok{(}\FloatTok{8.7}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{4}\NormalTok{),}
+  \AttributeTok{English =} \FunctionTok{c}\NormalTok{(}\FloatTok{7.9}\NormalTok{, }\FloatTok{7.2}\NormalTok{, }\FloatTok{12.4}\NormalTok{),}
+  \AttributeTok{Geography =} \FunctionTok{c}\NormalTok{(}\FloatTok{6.4}\NormalTok{, }\FloatTok{10.5}\NormalTok{, }\FloatTok{6.5}\NormalTok{),}
+  \AttributeTok{Art =} \FunctionTok{c}\NormalTok{(}\FloatTok{2.4}\NormalTok{, }\FloatTok{0.2}\NormalTok{, }\FloatTok{9.8}\NormalTok{),}
+  \AttributeTok{Programming =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{20}\NormalTok{),}
+  \AttributeTok{Music =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{20}\NormalTok{)}
+\NormalTok{)}
+\NormalTok{exam\_scores}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           Biology Physics Maths Sport English Geography Art Programming Music
+## Student.1     7.9      10   3.7   8.7     7.9       6.4 2.4           0    20
+## Student.2     3.9      20  11.5  20.0     7.2      10.5 0.2           0    20
+## Student.3     9.4       0   2.5   4.0    12.4       6.5 9.8          20    20
+\end{verbatim}
+
+\textbf{Data preparation}
+
+The data should be organized as follow:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{The row 1 must contain the maximum values for each variable}
+\item
+  \textbf{The row 2 must contain the minimum values for each variable}
+\item
+  \textbf{Data for cases or individuals should be given starting from
+  row 3}
+\item
+  \textbf{The number of columns or variables must be more than 2.}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Define the variable ranges: maximum and minimum}
+\NormalTok{max\_min }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Biology =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{0}\NormalTok{), }\AttributeTok{Physics =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{0}\NormalTok{), }\AttributeTok{Maths =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+  \AttributeTok{Sport =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{0}\NormalTok{), }\AttributeTok{English =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{0}\NormalTok{), }\AttributeTok{Geography =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+  \AttributeTok{Art =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{0}\NormalTok{), }\AttributeTok{Programming =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{0}\NormalTok{), }\AttributeTok{Music =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(max\_min) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Max"}\NormalTok{, }\StringTok{"Min"}\NormalTok{)}
+
+\CommentTok{\# Bind the variable ranges to the data}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(max\_min, exam\_scores)}
+\NormalTok{df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           Biology Physics Maths Sport English Geography  Art Programming Music
+## Max          20.0      20  20.0  20.0    20.0      20.0 20.0          20    20
+## Min           0.0       0   0.0   0.0     0.0       0.0  0.0           0     0
+## Student.1     7.9      10   3.7   8.7     7.9       6.4  2.4           0    20
+## Student.2     3.9      20  11.5  20.0     7.2      10.5  0.2           0    20
+## Student.3     9.4       0   2.5   4.0    12.4       6.5  9.8          20    20
+\end{verbatim}
+
+\textbf{Basic radar plot}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot the data for student 1}
+\FunctionTok{library}\NormalTok{(fmsb)}
+\NormalTok{student1\_data }\OtherTok{\textless{}{-}}\NormalTok{ df[}\FunctionTok{c}\NormalTok{(}\StringTok{"Max"}\NormalTok{, }\StringTok{"Min"}\NormalTok{, }\StringTok{"Student.1"}\NormalTok{), ]}
+\FunctionTok{radarchart}\NormalTok{(student1\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\hypertarget{customize-the-radar-charts}{%
+\section{Customize the radar charts}\label{customize-the-radar-charts}}
+
+Key arguments to customize the different components of the fmsb radar
+chart:
+
+\begin{itemize}
+\item
+  \textbf{Variable options}
+\item
+\begin{verbatim}
+   *vlabels: variable labels*
+\end{verbatim}
+\item
+\begin{verbatim}
+   *vlcex: controls the font size of variable labels*
+\end{verbatim}
+\item
+  \textbf{Polygon options:}
+\item
+\begin{verbatim}
+ *pcol: line color*
+\end{verbatim}
+\item
+\begin{verbatim}
+ *pfcol: fill color*
+\end{verbatim}
+\item
+\begin{verbatim}
+ *plwd: line width*
+\end{verbatim}
+\item
+\begin{verbatim}
+ *plty: line types. Can be a numeric vector 1:6 or a character vector c(“solid”, “dashed”, “dotted”, “dotdash”, “longdash”, “twodash”). To remove the line, use plty = 0 or plty = “blank”.*
+\end{verbatim}
+\item
+  \textbf{Grid options:}
+\item
+\begin{verbatim}
+   *cglcol: line color*
+\end{verbatim}
+\item
+\begin{verbatim}
+   *cglty: line type*
+\end{verbatim}
+\item
+\begin{verbatim}
+   *cglwd: line width*
+\end{verbatim}
+\item
+  \textbf{Axis options:}
+\item
+\begin{verbatim}
+ *axislabcol: color of axis label and numbers. Default is “blue”.*
+\end{verbatim}
+\item
+\begin{verbatim}
+ *caxislabels: Character vector to be used as labels on the center axis.*
+\end{verbatim}
+\end{itemize}
+
+Helper function to produce a beautiful radar chart:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{create\_beautiful\_radarchart }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(data, }\AttributeTok{color =} \StringTok{"\#00AFBB"}\NormalTok{, }
+                                        \AttributeTok{vlabels =} \FunctionTok{colnames}\NormalTok{(data), }\AttributeTok{vlcex =} \FloatTok{0.7}\NormalTok{,}
+                                        \AttributeTok{caxislabels =} \ConstantTok{NULL}\NormalTok{, }\AttributeTok{title =} \ConstantTok{NULL}\NormalTok{, ...)\{}
+  \FunctionTok{radarchart}\NormalTok{(}
+\NormalTok{    data, }\AttributeTok{axistype =} \DecValTok{1}\NormalTok{,}
+    \CommentTok{\# Customize the polygon}
+    \AttributeTok{pcol =}\NormalTok{ color, }\AttributeTok{pfcol =}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{alpha}\NormalTok{(color, }\FloatTok{0.5}\NormalTok{), }\AttributeTok{plwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{plty =} \DecValTok{1}\NormalTok{,}
+    \CommentTok{\# Customize the grid}
+    \AttributeTok{cglcol =} \StringTok{"grey"}\NormalTok{, }\AttributeTok{cglty =} \DecValTok{1}\NormalTok{, }\AttributeTok{cglwd =} \FloatTok{0.8}\NormalTok{,}
+    \CommentTok{\# Customize the axis}
+    \AttributeTok{axislabcol =} \StringTok{"grey"}\NormalTok{, }
+    \CommentTok{\# Variable labels}
+    \AttributeTok{vlcex =}\NormalTok{ vlcex, }\AttributeTok{vlabels =}\NormalTok{ vlabels,}
+    \AttributeTok{caxislabels =}\NormalTok{ caxislabels, }\AttributeTok{title =}\NormalTok{ title, ...}
+\NormalTok{  )}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+In the code above, we used the function alpha() {[}in scales package{]}
+to change the polygon fill color transparency.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Reduce plot margin using par()}
+\NormalTok{op }\OtherTok{\textless{}{-}} \FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\FunctionTok{create\_beautiful\_radarchart}\NormalTok{(student1\_data, }\AttributeTok{caxislabels =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{20}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(op)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Create radar charts for multiple individuals}
+
+Create the radar chart of the three students on the same plot:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Reduce plot margin using par()}
+\NormalTok{op }\OtherTok{\textless{}{-}} \FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\CommentTok{\# Create the radar charts}
+\FunctionTok{create\_beautiful\_radarchart}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ df, }\AttributeTok{caxislabels =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{20}\NormalTok{),}
+  \AttributeTok{color =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#00AFBB"}\NormalTok{, }\StringTok{"\#E7B800"}\NormalTok{, }\StringTok{"\#FC4E07"}\NormalTok{)}
+\NormalTok{)}
+\CommentTok{\# Add an horizontal legend}
+\FunctionTok{legend}\NormalTok{(}
+  \AttributeTok{x =} \StringTok{"topright"}\NormalTok{, }\AttributeTok{legend =} \FunctionTok{rownames}\NormalTok{(df[}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{),]), }\AttributeTok{horiz =} \ConstantTok{FALSE}\NormalTok{,}
+  \AttributeTok{bty =} \StringTok{"n"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{20}\NormalTok{ , }\AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#00AFBB"}\NormalTok{, }\StringTok{"\#E7B800"}\NormalTok{, }\StringTok{"\#FC4E07"}\NormalTok{),}
+  \AttributeTok{text.col =} \StringTok{"black"}\NormalTok{, }\AttributeTok{cex =} \DecValTok{1}\NormalTok{, }\AttributeTok{pt.cex =} \FloatTok{1.5}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(op)}
+\end{Highlighting}
+\end{Shaded}
+
+In the legend() function of ggplot2, you can specify the position of the
+legend using the x and y arguments. Here are some of the possible
+positions for the legend:
+
+\begin{itemize}
+\tightlist
+\item
+  ``top'': Places the legend at the top of the plot.
+\item
+  ``bottom'': Places the legend at the bottom of the plot.
+\item
+  ``left'': Positions the legend on the left side of the plot.
+\item
+  ``right'': Positions the legend on the right side of the plot.
+\item
+  ``topleft'': Positions the legend in the top left corner of the plot.
+\item
+  ``topright'': Positions the legend in the top right corner of the
+  plot.
+\item
+  ``bottomleft'': Positions the legend in the bottom left corner of the
+  plot.
+\item
+  ``bottomright'': Positions the legend in the bottom right corner of
+  the plot.
+\end{itemize}
+
+\emph{c(x\_coordinate, y\_coordinate): Allows you to specify custom
+coordinates for the legend. You can provide the x and y coordinates as
+numeric values.}
+
+\emph{For example, if you want to place the legend on the top right
+corner of the plot, you can use legend(x = ``topright''). Similarly, if
+you want to specify custom coordinates, you can use legend(x = 0.8, y =
+0.2) to position the legend at the coordinates (0.8, 0.2) within the
+plot.}
+
+\emph{These different positions give you flexibility in placing the
+legend in various parts of the plot depending on your visualization
+requirements.}
+
+\textbf{Create separated spider charts for each individual. This is
+recommended when you have more than 3 series.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Define colors and titles}
+
+\NormalTok{colors }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"\#00AFBB"}\NormalTok{, }\StringTok{"\#E7B800"}\NormalTok{, }\StringTok{"\#FC4E07"}\NormalTok{)}
+\NormalTok{titles }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Student.1"}\NormalTok{, }\StringTok{"Student.2"}\NormalTok{, }\StringTok{"Student.3"}\NormalTok{)}
+
+\CommentTok{\# Reduce plot margin using par()}
+\CommentTok{\# Split the screen in 3 parts}
+\NormalTok{op }\OtherTok{\textless{}{-}} \FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+
+\CommentTok{\# Create the radar chart}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{)\{}
+  \FunctionTok{create\_beautiful\_radarchart}\NormalTok{(}
+    \AttributeTok{data =}\NormalTok{ df[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, i}\SpecialCharTok{+}\DecValTok{2}\NormalTok{), ], }\AttributeTok{caxislabels =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{20}\NormalTok{),}
+    \AttributeTok{color =}\NormalTok{ colors[i], }\AttributeTok{title =}\NormalTok{ titles[i]}
+\NormalTok{  )}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(op)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Compare every profile to an average profile}
+
+Radar charts are most useful if the profile of every individual is
+compared to an average profile.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a demo data containing exam scores for 10 students:}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}
+  \FunctionTok{matrix}\NormalTok{(}\FunctionTok{sample}\NormalTok{(}\DecValTok{2}\SpecialCharTok{:}\DecValTok{20}\NormalTok{ , }\DecValTok{90}\NormalTok{ , }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{),}
+         \AttributeTok{ncol=}\DecValTok{9}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{)}
+
+\CommentTok{\# In this example the matrix we build up has a vote (variable) between 2 and 20,}
+\CommentTok{\# x90 times (total votes=values 10 student x9 subjects), replace the value in }
+\CommentTok{\# the empty matrix. ncol = at the number of subject (9), order the frame by }
+\CommentTok{\# number of rows of the data frame = 10!}
+\NormalTok{df }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    V1 V2 V3 V4 V5 V6 V7 V8 V9
+## 1  16 20 15  4 11 19 12  6 15
+## 2   6 20 10  4  9  8 11 10 20
+## 3   5 15 18 12  8 13 16 11 14
+## 4   8 10 10 11  8  7  3  6  9
+## 5  13 14 19  2  7 16 10 16 17
+## 6   7 12  9  8 17 18 19 18  3
+## 7   5 14  6 20 15  4  9 17 13
+## 8  15  4 15  8  4 16  6  9 20
+## 9  11 19 11 13  3 11 13 15 18
+## 10 15  4  9 15 20 16 18 12  8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(df) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}
+  \StringTok{"Biology"}\NormalTok{, }\StringTok{"Physics"}\NormalTok{, }\StringTok{"Maths"}\NormalTok{, }\StringTok{"Sport"}\NormalTok{, }\StringTok{"English"}\NormalTok{, }
+  \StringTok{"Geography"}\NormalTok{, }\StringTok{"Art"}\NormalTok{, }\StringTok{"Programming"}\NormalTok{, }\StringTok{"Music"}
+\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(df) }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"Student."}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df))}
+\FunctionTok{head}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           Biology Physics Maths Sport English Geography Art Programming Music
+## Student.1      16      20    15     4      11        19  12           6    15
+## Student.2       6      20    10     4       9         8  11          10    20
+## Student.3       5      15    18    12       8        13  16          11    14
+## Student.4       8      10    10    11       8         7   3           6     9
+## Student.5      13      14    19     2       7        16  10          16    17
+## Student.6       7      12     9     8      17        18  19          18     3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Give the name based on a root = Student and adding the row number from 1 to }
+\CommentTok{\# end (10), Same is giving the name of the subject per every column}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Rescale each variable to range between 0 and 1:}
+
+The provided code performs the following operations:
+
+\begin{itemize}
+\item
+  df\_scaled \textless- round(apply(df, 2, scales::rescale),
+  2):\emph{This line scales the columns of the data frame df using the
+  scales::rescale function from the scales package. The apply() function
+  is used to apply the scaling operation column-wise (2 indicates
+  columns) on the data frame. The rescale function scales the values of
+  each column to a new range (usually between 0 and 1). The resulting
+  scaled values are then rounded to two decimal places using the round()
+  function. The scaled values are assigned to a new data frame called
+  df\_scaled.}
+\item
+  df\_scaled \textless- as.data.frame(df\_scaled): \emph{This line
+  converts the df\_scaled object (which was previously a matrix
+  resulting from the apply function) into a data frame. This step is
+  done to ensure that the resulting object is in the desired data frame
+  format.}
+\item
+  head(df\_scaled): \emph{This line displays the first few rows of the
+  df\_scaled data frame, allowing you to inspect the scaled values.}
+\end{itemize}
+
+In summary, the code scales the columns of the original data frame df
+using the rescale function, rounds the scaled values, converts the
+result into a data frame, and then displays the first few rows of the
+scaled data frame. This is often done to normalize or standardize the
+values in a dataset, making them comparable or easier to interpret.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(scales)}
+\NormalTok{df\_scaled }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(}\FunctionTok{apply}\NormalTok{(df, }\DecValTok{2}\NormalTok{, scales}\SpecialCharTok{::}\NormalTok{rescale), }\DecValTok{2}\NormalTok{)}
+\NormalTok{df\_scaled }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(df\_scaled)}
+\FunctionTok{head}\NormalTok{(df\_scaled)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           Biology Physics Maths Sport English Geography  Art Programming Music
+## Student.1    1.00    1.00  0.69  0.11    0.47      1.00 0.56        0.00  0.71
+## Student.2    0.09    1.00  0.31  0.11    0.35      0.27 0.50        0.33  1.00
+## Student.3    0.00    0.69  0.92  0.56    0.29      0.60 0.81        0.42  0.65
+## Student.4    0.27    0.38  0.31  0.50    0.29      0.20 0.00        0.00  0.35
+## Student.5    0.73    0.62  1.00  0.00    0.24      0.80 0.44        0.83  0.82
+## Student.6    0.18    0.50  0.23  0.33    0.82      0.93 1.00        1.00  0.00
+\end{verbatim}
+
+To scale the data between 0 and 9 instead of the default range (usually
+0 to 1), you can modify the code as follows:
+
+\emph{df\_scaled \textless- round(apply(df, 2, function(x)
+scales::rescale(x, to = c(0, 9))), 2)} \emph{df\_scaled \textless-
+as.data.frame(df\_scaled)} \emph{head(df\_scaled)}
+--------------------------------------------------------------------------------
+
+\textbf{Prepare the data for creating the radar plot using the fmsb
+package:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Variables summary}
+\CommentTok{\# Get the minimum and the max of every column  }
+\NormalTok{col\_max }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(df\_scaled, }\DecValTok{2}\NormalTok{, max)}
+\NormalTok{col\_min }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(df\_scaled, }\DecValTok{2}\NormalTok{, min)}
+\CommentTok{\# Calculate the average profile }
+\NormalTok{col\_mean }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(df\_scaled, }\DecValTok{2}\NormalTok{, mean)}
+\CommentTok{\# Put together the summary of columns}
+\NormalTok{col\_summary }\OtherTok{\textless{}{-}} \FunctionTok{t}\NormalTok{(}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Max =}\NormalTok{ col\_max, }\AttributeTok{Min =}\NormalTok{ col\_min, }\AttributeTok{Average =}\NormalTok{ col\_mean))}
+
+
+\CommentTok{\# Bind variables summary to the data}
+\NormalTok{df\_scaled2 }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{rbind}\NormalTok{(col\_summary, df\_scaled))}
+\FunctionTok{head}\NormalTok{(df\_scaled2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           Biology Physics Maths Sport English Geography   Art Programming Music
+## Max         1.000   1.000 1.000 1.000   1.000     1.000 1.000        1.00 1.000
+## Min         0.000   0.000 0.000 0.000   0.000     0.000 0.000        0.00 0.000
+## Average     0.464   0.575 0.476 0.427   0.423     0.587 0.544        0.50 0.629
+## Student.1   1.000   1.000 0.690 0.110   0.470     1.000 0.560        0.00 0.710
+## Student.2   0.090   1.000 0.310 0.110   0.350     0.270 0.500        0.33 1.000
+## Student.3   0.000   0.690 0.920 0.560   0.290     0.600 0.810        0.42 0.650
+\end{verbatim}
+
+Here we created a data frame in which are present also the minimum
+scaled value, the maximum scaled value and the mean scaled value, for
+every subject in our matrix. This is added to the original data frame
+above the others rows.
+
+\textbf{Produce radar plots showing both the average profile and the
+individual profile:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{opar }\OtherTok{\textless{}{-}} \FunctionTok{par}\NormalTok{() }
+\CommentTok{\# Define settings for plotting in a 3x4 grid, with appropriate margins:}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{rep}\NormalTok{(}\FloatTok{0.8}\NormalTok{,}\DecValTok{4}\NormalTok{))}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{))}
+\CommentTok{\# Produce a radar{-}chart for each student}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{4}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(df\_scaled2)) \{}
+  \FunctionTok{radarchart}\NormalTok{(}
+\NormalTok{    df\_scaled2[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{, i), ],}
+    \AttributeTok{pfcol =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#99999980"}\NormalTok{,}\ConstantTok{NA}\NormalTok{),}
+    \AttributeTok{pcol=} \FunctionTok{c}\NormalTok{(}\ConstantTok{NA}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{plty =} \DecValTok{1}\NormalTok{, }\AttributeTok{plwd =} \DecValTok{2}\NormalTok{,}
+    \AttributeTok{title =} \FunctionTok{row.names}\NormalTok{(df\_scaled2)[i]}
+\NormalTok{  )}
+\NormalTok{\}}
+\CommentTok{\# Restore the standard par() settings}
+\NormalTok{par }\OtherTok{\textless{}{-}} \FunctionTok{par}\NormalTok{(opar) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+The provided code performs the following operations:
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    \texttt{opar\ \textless{}-\ par()}: This line saves the current
+    graphical parameters in the \texttt{opar} object. It is done so that
+    you can later restore the original settings after making changes.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    \texttt{par(mar\ =\ rep(0.8,\ 4))}: This sets the margins (in
+    inches) for the plot. By using \texttt{rep(0.8,\ 4)}, it sets all
+    four margins (bottom, left, top, right) to a value of 0.8 inches.
+    This adjusts the space between the plot area and the edges of the
+    graphics device.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    \texttt{par(mfrow\ =\ c(3,\ 4))}: This sets the layout of the plots
+    in a 3x4 grid. It divides the graphics device into a grid with 3
+    rows and 4 columns, allowing you to create multiple plots in a
+    single figure.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    The \texttt{for} loop: This loop iterates over the rows of the
+    \texttt{df\_scaled2} data frame, starting from the 4th row
+    (\texttt{4:nrow(df\_scaled2)}). It produces a radar chart for each
+    student using the \texttt{radarchart()} function.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{4}
+  \tightlist
+  \item
+    Inside the loop, \texttt{radarchart()} function is called with the
+    following arguments:
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{df\_scaled2{[}c(1:3,\ i),\ {]}}: This selects the rows 1 to
+    3 and the current \texttt{i}th row from the \texttt{df\_scaled2}
+    data frame, creating a subset of the data to be plotted.
+  \item
+    \texttt{pfcol\ =\ c("\#99999980",\ NA)}: This sets the fill color
+    for the polygon area in the radar chart. The first color
+    \texttt{\#99999980} represents a light gray color with 50\%
+    transparency, and \texttt{NA} indicates no fill color for the data
+    points.
+  \item
+    \texttt{pcol\ =\ c(NA,\ 2)}: This sets the color for the polygon
+    border and the data points. \texttt{NA} means no border color for
+    the polygon, and \texttt{2} represents a color code for the data
+    points.
+  \item
+    \texttt{plty\ =\ 1}: This sets the line type for the polygon border
+    to a solid line.
+  \item
+    \texttt{plwd\ =\ 2}: This sets the line width for the polygon border
+    to a value of 2.
+  \item
+    \texttt{title\ =\ row.names(df\_scaled2){[}i{]}}: This sets the
+    title of the radar chart to the row name of the current \texttt{i}th
+    row in the \texttt{df\_scaled2} data frame.
+  \end{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \setcounter{enumi}{5}
+  \tightlist
+  \item
+    \texttt{par\ \textless{}-\ par(opar)}: This line restores the
+    original graphical parameters by assigning the saved \texttt{opar}
+    object back to \texttt{par}. It ensures that the settings are
+    reverted to the state before the changes made in the code.
+  \end{enumerate}
+\end{itemize}
+
+Overall, this code generates a grid of radar charts, with each chart
+representing a different student's data. The charts are created using
+the \texttt{radarchart()} function and customized using various
+parameters. The \texttt{par()} function is used to modify and restore
+graphical settings for the plot.
+
+================================================================================
+\# Forth Part
+
+\textbf{ggplot radar chart using the ggradar R package}
+
+Prerequisites
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{ (ggradar)}
+\end{Highlighting}
+\end{Shaded}
+
+Key function and arguments
+
+\texttt{ggradar(plot.data,\ values.radar\ =\ c("0\%",\ "50\%",\ "100\%"),grid.min\ =\ 0,\ grid.mid\ =\ 0.5,\ grid.max\ =\ 1,\ )}
+
+\begin{itemize}
+\tightlist
+\item
+  plot.data: data containing one row per individual or group
+\item
+  values.radar: values to show at minimum, average and maximum grid
+  lines
+\item
+  grid.min: value at which minimum grid line is plotted
+\item
+  grid.mid: value at which average grid line is plotted
+\item
+  grid.max: value at which maximum grid line is plotted
+\end{itemize}
+
+\textbf{Data preparation}
+
+NB:
+
+All variables in the data should be at the same scale. If this is not
+the case, you need to rescale the data.
+
+For example, you can rescale the variables to have a minimum of 0 and a
+maximum of 1 using the function \texttt{rescale()} {[}scales package{]}.
+We'll describe this method in the next sections.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Put row names into  a column named group}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ exam\_scores }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{rownames\_to\_column}\NormalTok{(}\StringTok{"group"}\NormalTok{)}
+\NormalTok{df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       group Biology Physics Maths Sport English Geography Art Programming Music
+## 1 Student.1     7.9      10   3.7   8.7     7.9       6.4 2.4           0    20
+## 2 Student.2     3.9      20  11.5  20.0     7.2      10.5 0.2           0    20
+## 3 Student.3     9.4       0   2.5   4.0    12.4       6.5 9.8          20    20
+\end{verbatim}
+
+\textbf{Basic radar plot}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting student 1}
+\FunctionTok{ggradar}\NormalTok{(}
+\NormalTok{  df[}\DecValTok{1}\NormalTok{, ], }
+  \AttributeTok{values.radar =} \FunctionTok{c}\NormalTok{(}\StringTok{"0"}\NormalTok{, }\StringTok{"10"}\NormalTok{, }\StringTok{"20"}\NormalTok{),}
+  \AttributeTok{grid.min =} \DecValTok{0}\NormalTok{, }\AttributeTok{grid.mid =} \DecValTok{10}\NormalTok{, }\AttributeTok{grid.max =} \DecValTok{20}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\textbf{Customize radar charts}
+
+Key arguments to customize the different components of the ggplot radar
+chart. For more options see the documentation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggradar}\NormalTok{(}
+\NormalTok{  df[}\DecValTok{1}\NormalTok{, ], }
+  \AttributeTok{values.radar =} \FunctionTok{c}\NormalTok{(}\StringTok{"0"}\NormalTok{, }\StringTok{"10"}\NormalTok{, }\StringTok{"20"}\NormalTok{),}
+  \AttributeTok{grid.min =} \DecValTok{0}\NormalTok{, }\AttributeTok{grid.mid =} \DecValTok{10}\NormalTok{, }\AttributeTok{grid.max =} \DecValTok{20}\NormalTok{,}
+  \CommentTok{\# Polygons}
+  \AttributeTok{group.line.width =} \DecValTok{1}\NormalTok{, }
+  \AttributeTok{group.point.size =} \DecValTok{3}\NormalTok{,}
+  \AttributeTok{group.colours =} \StringTok{"\#00AFBB"}\NormalTok{,}
+  \CommentTok{\# Background and grid lines}
+  \AttributeTok{background.circle.colour =} \StringTok{"white"}\NormalTok{,}
+  \AttributeTok{gridline.mid.colour =} \StringTok{"grey"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\textbf{Radar chart with multiple individuals or groups}
+
+Create the radar chart of the three students on the same plot:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggradar}\NormalTok{(}
+\NormalTok{  df, }
+  \AttributeTok{values.radar =} \FunctionTok{c}\NormalTok{(}\StringTok{"0"}\NormalTok{, }\StringTok{"10"}\NormalTok{, }\StringTok{"20"}\NormalTok{),}
+  \AttributeTok{grid.min =} \DecValTok{0}\NormalTok{, }\AttributeTok{grid.mid =} \DecValTok{10}\NormalTok{, }\AttributeTok{grid.max =} \DecValTok{20}\NormalTok{,}
+  \CommentTok{\# Polygons}
+  \AttributeTok{group.line.width =} \DecValTok{1}\NormalTok{, }
+  \AttributeTok{group.point.size =} \DecValTok{3}\NormalTok{,}
+  \AttributeTok{group.colours =} \FunctionTok{c}\NormalTok{(}\StringTok{"\#00AFBB"}\NormalTok{, }\StringTok{"\#E7B800"}\NormalTok{, }\StringTok{"\#FC4E07"}\NormalTok{),}
+  \CommentTok{\# Background and grid lines}
+  \AttributeTok{background.circle.colour =} \StringTok{"white"}\NormalTok{,}
+  \AttributeTok{gridline.mid.colour =} \StringTok{"grey"}\NormalTok{,}
+  \AttributeTok{legend.position =} \StringTok{"bottom"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-20-1.pdf}
+
+\textbf{Alternatives to radar charts}
+
+A circular plot is difficult to read. An alternative to a radar chart is
+an ordered lolliplot or dotchart. This section describes how to create
+dotcharts. The ggpubr R package will be used in this section to create a
+dotchart.
+
+Load required packages:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(ggpubr)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Case when all quantitative variables have the same scale}
+
+Displaying one individual
+
+Data preparation:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df2 }\OtherTok{\textless{}{-}} \FunctionTok{t}\NormalTok{(exam\_scores) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{as.data.frame}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rownames\_to\_column}\NormalTok{(}\StringTok{"Field"}\NormalTok{)}
+\NormalTok{df2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         Field Student.1 Student.2 Student.3
+## 1     Biology       7.9       3.9       9.4
+## 2     Physics      10.0      20.0       0.0
+## 3       Maths       3.7      11.5       2.5
+## 4       Sport       8.7      20.0       4.0
+## 5     English       7.9       7.2      12.4
+## 6   Geography       6.4      10.5       6.5
+## 7         Art       2.4       0.2       9.8
+## 8 Programming       0.0       0.0      20.0
+## 9       Music      20.0      20.0      20.0
+\end{verbatim}
+
+The code provided performs the following operations:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{t(exam\_scores)}: This transposes the exam\_scores object. If
+  exam\_scores is a matrix or data frame, transposing it will swap the
+  rows and columns, resulting in a new object.
+\end{itemize}
+
+\%\textgreater\%: This is the pipe operator, which allows you to chain
+multiple operations together. It takes the output from the previous
+operation and passes it as the first argument to the next function call.
+
+\begin{itemize}
+\item
+  \textbf{as.data.frame()}: This converts the transposed object into a
+  data frame. If exam\_scores was originally a matrix, this step
+  converts it into a data frame format.
+\item
+  \textbf{rownames\_to\_column(``Field'')}: This function from the dplyr
+  package adds a new column called ``Field'' to the data frame,
+  containing the row names from the transposed object. It assigns the
+  row names as a separate column, making them accessible for further
+  data manipulation or analysis.
+\item
+  \textbf{df2}: This assigns the resulting object from the previous
+  operations to the variable df2.
+\end{itemize}
+
+Overall, this code takes the exam\_scores object, transposes it,
+converts it into a data frame, and adds a new column with the row names.
+The final result is stored in the df2 variable, which contains the
+transposed data with row names as a separate column.
+
+\textbf{Plot creation:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggdotchart}\NormalTok{(}
+\NormalTok{  df2, }\AttributeTok{x =} \StringTok{"Field"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Student.1"}\NormalTok{,}
+  \AttributeTok{add =} \StringTok{"segments"}\NormalTok{, }\AttributeTok{sorting =} \StringTok{"descending"}\NormalTok{,}
+  \AttributeTok{ylab =} \StringTok{"Exam Score"}\NormalTok{, }\AttributeTok{title =} \StringTok{"Student 1"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-23-1.pdf}
+
+\textbf{Displaying two individuals}
+
+Data preparation:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df3 }\OtherTok{\textless{}{-}}\NormalTok{ df2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(Field, Student}\FloatTok{.1}\NormalTok{, Student}\FloatTok{.2}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \FunctionTok{c}\NormalTok{(Student}\FloatTok{.1}\NormalTok{, Student}\FloatTok{.2}\NormalTok{),}
+    \AttributeTok{names\_to =} \StringTok{"student"}\NormalTok{,}
+    \AttributeTok{values\_to =} \StringTok{"value"}
+\NormalTok{  )}
+\FunctionTok{head}\NormalTok{(df3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   Field   student   value
+##   <chr>   <chr>     <dbl>
+## 1 Biology Student.1   7.9
+## 2 Biology Student.2   3.9
+## 3 Physics Student.1  10  
+## 4 Physics Student.2  20  
+## 5 Maths   Student.1   3.7
+## 6 Maths   Student.2  11.5
+\end{verbatim}
+
+\textbf{Plot creation}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggdotchart}\NormalTok{(}
+\NormalTok{  df3, }\AttributeTok{x =} \StringTok{"Field"}\NormalTok{, }\AttributeTok{y =} \StringTok{"value"}\NormalTok{, }
+  \AttributeTok{group =} \StringTok{"student"}\NormalTok{, }\AttributeTok{color =} \StringTok{"student"}\NormalTok{, }\AttributeTok{palette =} \StringTok{"jco"}\NormalTok{,}
+  \AttributeTok{add =} \StringTok{"segment"}\NormalTok{, }\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(}\FloatTok{0.3}\NormalTok{),}
+  \AttributeTok{sorting =} \StringTok{"descending"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+\textbf{Displaying multiple individuals}
+
+Data preparation:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df4 }\OtherTok{\textless{}{-}}\NormalTok{ df2 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(Field, Student}\FloatTok{.1}\NormalTok{, Student}\FloatTok{.2}\NormalTok{, Student}\FloatTok{.3}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \FunctionTok{c}\NormalTok{(Student}\FloatTok{.1}\NormalTok{, Student}\FloatTok{.2}\NormalTok{, Student}\FloatTok{.3}\NormalTok{),}
+    \AttributeTok{names\_to =} \StringTok{"student"}\NormalTok{,}
+    \AttributeTok{values\_to =} \StringTok{"value"}
+\NormalTok{  )}
+\FunctionTok{head}\NormalTok{(df4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   Field   student   value
+##   <chr>   <chr>     <dbl>
+## 1 Biology Student.1   7.9
+## 2 Biology Student.2   3.9
+## 3 Biology Student.3   9.4
+## 4 Physics Student.1  10  
+## 5 Physics Student.2  20  
+## 6 Physics Student.3   0
+\end{verbatim}
+
+\textbf{Plot creation}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggdotchart}\NormalTok{(}
+\NormalTok{  df4, }\AttributeTok{x =} \StringTok{"Field"}\NormalTok{, }\AttributeTok{y =} \StringTok{"value"}\NormalTok{, }
+  \AttributeTok{group =} \StringTok{"student"}\NormalTok{, }\AttributeTok{color =} \StringTok{"student"}\NormalTok{, }\AttributeTok{palette =} \StringTok{"jco"}\NormalTok{,}
+  \AttributeTok{add =} \StringTok{"segment"}\NormalTok{, }\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(}\FloatTok{0.3}\NormalTok{),}
+  \AttributeTok{sorting =} \StringTok{"descending"}\NormalTok{, }\AttributeTok{facet.by =} \StringTok{"student"}\NormalTok{,}
+  \AttributeTok{rotate =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{legend =} \StringTok{"none"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-27-1.pdf}
+
+\hypertarget{case-when-you-have-a-lot-of-individuals-to-plot-or-if-your-variables-have-different-scales}{%
+\section{Case when you have a lot of individuals to plot or if your
+variables have different
+scales}\label{case-when-you-have-a-lot-of-individuals-to-plot-or-if-your-variables-have-different-scales}}
+
+\textbf{A solution is to create a parallel coordinates plot.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(GGally)}
+
+\FunctionTok{ggparcoord}\NormalTok{(}
+\NormalTok{  iris,}
+  \AttributeTok{columns =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{, }\AttributeTok{groupColumn =} \DecValTok{5}\NormalTok{, }\AttributeTok{order =} \StringTok{"anyClass"}\NormalTok{,}
+  \AttributeTok{showPoints =} \ConstantTok{TRUE}\NormalTok{, }
+  \AttributeTok{title =} \StringTok{"Parallel Coordinate Plot for the Iris Data"}\NormalTok{,}
+  \AttributeTok{alphaLines =} \FloatTok{0.3}
+\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"top"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Radar_chart_markdown_files/figure-latex/unnamed-chunk-28-1.pdf}
+
+Note that, the default of the function ggparcoord() is to rescale each
+variable by subtracting the mean and dividing by the standard deviation.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+. \textbf{END} .
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
