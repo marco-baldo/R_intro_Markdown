@@ -182,7 +182,7 @@ Let's visualize it in a radar chart:
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
 
 ggplot(data=data,  aes(x=X2, y=Harvest, group=X3, colour=X3)) + 
-  geom_point(size=5) + 
+  geom_point(size=3) + 
   geom_line() + 
   xlab("Year") + 
   ylab("Harvest [m3/ha]") + 
