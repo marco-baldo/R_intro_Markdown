@@ -1,0 +1,32 @@
+---
+title: "Linear Regression Model Explanation"
+author: "Your Name"
+date: "2023-12-01"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+This document provides an explanation of the linear regression model.
+
+## Linear Regression Model
+
+The linear regression model is expressed by the following equation:
+
+\[ \hat{y}_t = a + b_1 \cdot x_{1t} + b_2 \cdot x_{2t} + b_3 \cdot x_{3t} \]
+
+where:
+
+- \( \hat{y}_t \) represents the predicted or estimated value of the dependent variable at time \( t \).
+- \( a \) denotes the intercept, signifying the estimated value of \( y_t \) when all explanatory variables are zero.
+- \( b_1, b_2, \) and \( b_3 \) are the coefficients representing the estimated change in \( y_t \) for a one-unit change in \( x_{1t}, x_{2t}, \) and \( x_{3t} \) respectively.
+
+## Conclusion
+
+This model captures the linear relationship between the dependent variable \( y_t \) and the explanatory variables \( x_{1t}, x_{2t}, \) and \( x_{3t} \), with corresponding coefficients.

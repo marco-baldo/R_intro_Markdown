@@ -1,61 +1,105 @@
 ---
 title: "Radar Chart in Markdown"
-author: "Marco"
-date: "2023-06-19"
+author: "Marco Baldo"
+date: "26 March 2024"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
-  pdf_document: default
 ---
 
-# Script for a Radar Chart example with R
+# R Markdown introduction
 
----------------------------------------------
-Markdown is an **easy to use** format for writing reports. It resembles what you naturally write every time you compose an email. In fact, you may have already used markdown *without realizing it*. These websites all rely on markdown formatting.
-In case word is not working use *tinytex::install_tinytex()* before to start.
+--------------------------------------------------------------------------------
+Markdown is an **easy to use** format for writing reports. It resembles what you naturally write every time you compose an email or a word file. In fact, you may have already used markdown *without realizing it*. These websites all rely on markdown formatting.
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
 
-* [Github](www.github.com)
-* [StackOverflow](www.stackoverflow.com)
-* [Reddit](www.reddit.com)
+[CRAN](https://cran.r-project.org/web/packages/markdown/index.html)
 
-eval = TRUE evaluate the script
+[Github](https://github.com/marco-baldo/R_intro_Markdown)
 
-echo = FALSE means only the result shown
+[R Markdown Book](https://bookdown.org/yihui/rmarkdown-cookbook/)
 
-message = FALSE remove the messages from the report
+[HTML Radar chart markdown](file:///C:/Users/baldo/Documents/GitHub/R_intro_Markdown/Radar_chart/Radar_chart_markdown.html)
+--------------------------------------------------------------------------------
 
-warnings = FALSE remove the warning messages
----------------------------------------------
+
+> Table YAML Header options
+
+| Option            | Description                                        | Values                               |
+|-------------------|----------------------------------------------------|--------------------------------------|
+| title             | Title of the document                              | Text                                 |
+| author            | Author(s) of the document                          | Text                                 |
+| date              | Date of the document                               | YYYY-MM-DD                           |
+| output            | Output format and associated options               | See below                            |
+| toc               | Include table of contents                          | `true`, `false`                      |
+| toc_depth         | Depth of table of contents                         | Numeric value                        |
+| theme             | Document theme                                     | Theme names (e.g., `cosmo`, `lumen`) |
+| css               | Custom CSS file                                    | File path or URL                     |
+| fig_caption       | Include captions for figures                       | `true`, `false`                      |
+| code_folding      | Enable code folding in HTML output                 | `hide`, `show`, `none`               |
+| df_print          | Method for printing data frames                    | `paged`, `kable`, `tibble`, etc.     |
+| include_graphics  | Method for including graphics                      | `base64`, `url`, `path`              |
+| highlight         | Syntax highlighting theme for code chunks          | Theme names (e.g., `tango`, `zenburn`) |
+| latex_engine      | LaTeX engine for PDF output                        | `pdflatex`, `xelatex`, `lualatex`    |
+| keep_md           | Keep Markdown source file after rendering          | `true`, `false`                      |
+| keep_tex          | Keep LaTeX intermediate file after rendering       | `true`, `false`                      |
+| number_sections   | Number section headings                            | `true`, `false`                      |
+
 
 ```{r setup, include=FALSE, message = FALSE, warning = FALSE}
 knitr::opts_chunk$set(eval=FALSE, echo = TRUE, message = FALSE, warning = FALSE)
 
-library(fmsb)
-library(ggplot2)
-library(dplyr)
-library(tidyverse)
-library(scales)
-#library(ggradar)
-
-library(fields)
-library(tidyr)
-library(cowplot)
-library(dplyr)
-library(purrr)
-library(readr)
-
-getwd()
+getwd() # Set working directory as the local repository
 ```
 
-## R Markdown
+**You can embed an R code chunk like this:**
+ 
+* eval = Specifies whether to evaluate the code chunks when rendering the document. When set to FALSE, the code chunks will not be executed, and their output will not be included in the final document. This can be useful when you want to show example code without actually running it.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+* echo = Controls whether the code itself is displayed in the final document. When set to TRUE, the code chunks will be displayed along with their output. When set to FALSE, only the output of the code chunks will be displayed.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+* message = Controls whether messages generated by the code chunks are displayed in the final document. When set to TRUE, messages will be displayed. When set to FALSE, messages will be suppressed.
+
+* warnings = Controls whether warnings generated by the code chunks are displayed in the final document. When set to TRUE, warnings will be displayed. When set to FALSE, warnings will be suppressed.
+
+
+> Table of chunk setting option
+
+| Option         | Description                                   | Possible Values       |
+|----------------|-----------------------------------------------|-----------------------|
+| `eval`         | Evaluate the code chunk                      | `TRUE`, `FALSE`       |
+| `echo`         | Display the code in the output                | `TRUE`, `FALSE`       |
+| `include`      | Include the code and output                   | `TRUE`, `FALSE`       |
+| `message`      | Display messages generated by the code        | `TRUE`, `FALSE`       |
+| `warning`      | Display warnings generated by the code        | `TRUE`, `FALSE`       |
+| `error`        | Display errors generated by the code          | `TRUE`, `FALSE`       |
+| `results`      | Display method for code results               | `markup`, `hide`, etc.|
+| `collapse`     | Collapse the code chunk by default            | `TRUE`, `FALSE`       |
+| `comment`      | Add a comment to the code chunk               | Text                  |
+| `fig.cap`      | Caption for output plots                      | Text                  |
+| `fig.width`    | Width of output plots                         | Numeric value         |
+| `fig.height`   | Height of output plots                        | Numeric value         |
+| `out.width`    | Width of output images                        | Numeric value         |
+| `out.height`   | Height of output images                       | Numeric value         |
+| `fig.align`    | Alignment of figures                          | `default`, `left`, etc.|
+| `fig.pos`      | Position of figures                           | `H`, `h`, `ht`, etc.  |
+| `dev`          | Graphics device for plots                     | `pdf`, `png`, etc.    |
+| `cache`        | Enable caching of code chunk results          | `TRUE`, `FALSE`       |
+| `cache.path`   | Directory for cached results                  | Directory path        |
+| `class.output` | Custom CSS classes for the output             | CSS class names       |
+| `class.source` | Custom CSS classes for the source code        | CSS class names       |
+| `class.note`   | Custom CSS classes for chunk notes            | CSS class names       |
+| `class.message`| Custom CSS classes for messages               | CSS class names       |
+| `class.warning`| Custom CSS classes for warnings               | CSS class names       |
+| `class.error`  | Custom CSS classes for errors                 | CSS class names       |
+
 
 Create Data - To let the radar chart work properly you need to specify maximum, minumum and the value of the variable. [For example](https://www.statology.org/radar-chart-in-r/):
 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
+# Create a data frame
 df <- data.frame(Mon=c(100, 0, 34),
                  Tue=c(100, 0, 48),
                  Wed=c(100, 0, 58),
@@ -64,13 +108,13 @@ df <- data.frame(Mon=c(100, 0, 34),
                  Sat=c(100, 0, 29),
                  Sun=c(100, 0, 18))
 
-#view data
+# View data
 df
 
 # Once the data is in this format, we can use the radarchart() function from the 
-# fmsb library to create a basic radar chart:
+# fmsb package to create a basic radar chart:
 
-
+library(fmsb)
 radarchart(df)
 
 ```
@@ -89,7 +133,7 @@ We can customize the radar chart by using the following arguments:
 * cglwd: Net width
 * vlcex: Group labels size
 
-Here an example from the previous data frame (NB for radar chart you need always the data.frame format):
+Here an example from the previous data frame (NB for radar chart you need always the specific data frame format):
 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
 radarchart(df,
@@ -113,37 +157,40 @@ Doing the same but with an average or threshold line - can be useful also for ot
 [Example](https://stackoverflow.com/questions/50353923/generate-radar-charts-with-ggplot2)
 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
-data <- read.csv("C:/_R/R_visual_radar/Radar_chart/data.csv")
+library(ggplot2)
+
+# Import data
+data <- read.csv(
+  "C:/Users/baldo/Documents/GitHub/R_intro_Markdown/Radar_chart/data.csv")
+
+# View the structure of your data
 str(data)
 
-# data <- data[,2:5]
-# str(data)
-
-
-ggplot(data=data,  aes(x=X2, y=Count, group=X3, colour=X3)) + 
+# Plot you data
+ggplot(data=data,  aes(x=X2, y=Harvest, group=X3, colour=X3)) + 
   geom_point(size=5) + 
   geom_line() + 
-  xlab("Decils") + 
-  ylab("% difference in nº Pk") + 
-  ylim(-50,25) + ggtitle("CL")  + 
-  geom_hline(aes(yintercept=0), lwd=1, lty=2) + 
-  scale_x_discrete(limits=c("DC1","DC2","DC3","DC4","DC5","DC6","DC7","DC8","DC9","DC10"))
+  xlab("Year") + 
+  ylab("Harvest [m3/ha]") + 
+  ylim(0,17) + ggtitle("Forest Harvest Limits")  + 
+  geom_hline(aes(yintercept=10), lwd=1, lty=2) + 
+  scale_x_discrete(limits=c("1","2","3","4","5","6","7","8","9","10"))
 
 ```
 
-I would like to transform this chart in a radar chart. I tried to use ggradar or ggRadar, but unsuccessfully. Something like this would be amazing:
+Let's visualize it in a radar chart:
 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
-ggplot(data=data,  aes(x=X2, y=Count, group=X3, colour=X3)) + 
+
+ggplot(data=data,  aes(x=X2, y=Harvest, group=X3, colour=X3)) + 
   geom_point(size=5) + 
   geom_line() + 
-  xlab("Decils") + 
-  ylab("% difference in nº Pk") + 
-  ylim(-50,25) + ggtitle("CL")  + 
-  geom_hline(aes(yintercept=0), lwd=1, lty=2) + 
-  scale_x_discrete(limits=c("DC1","DC2","DC3","DC4","DC5","DC6","DC7","DC8","DC9","DC10")) +
+  xlab("Year") + 
+  ylab("Harvest [m3/ha]") + 
+  ylim(0,17) + ggtitle("Forest Harvest Limits")  + 
+  geom_hline(aes(yintercept=10), lwd=1, lty=2) + 
+  scale_x_discrete(limits=c("1","2","3","4","5","6","7","8","9","10")) +
   coord_polar()
-  
 
 ```
 
@@ -173,15 +220,15 @@ We’ll use a demo data containing exam scores for 3 students on 9 topics (Biolo
 # Demo data
 exam_scores <- data.frame(
   row.names = c("Student.1", "Student.2", "Student.3"),
-  Biology = c(7.9, 3.9, 9.4),
-  Physics = c(10, 20, 0),
-  Maths = c(3.7, 11.5, 2.5),
-  Sport = c(8.7, 20, 4),
-  English = c(7.9, 7.2, 12.4),
-  Geography = c(6.4, 10.5, 6.5),
-  Art = c(2.4, 0.2, 9.8),
-  Programming = c(0, 0, 20),
-  Music = c(20, 20, 20)
+  Biology = c(7, 5, 9),
+  Physics = c(6, 6, 8),
+  Maths = c(6, 4, 7.5),
+  Sport = c(7, 9, 4),
+  English = c(8, 6, 7),
+  Geography = c(6, 7, 9),
+  Art = c(7, 5, 6),
+  Programming = c(6, 4.5, 8),
+  Music = c(7, 9, 6)
 )
 exam_scores
 
@@ -200,9 +247,9 @@ The data should be organized as follow:
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
 # Define the variable ranges: maximum and minimum
 max_min <- data.frame(
-  Biology = c(20, 0), Physics = c(20, 0), Maths = c(20, 0),
-  Sport = c(20, 0), English = c(20, 0), Geography = c(20, 0),
-  Art = c(20, 0), Programming = c(20, 0), Music = c(20, 0)
+  Biology = c(10, 0), Physics = c(10, 0), Maths = c(10, 0),
+  Sport = c(10, 0), English = c(10, 0), Geography = c(10, 0),
+  Art = c(10, 0), Programming = c(10, 0), Music = c(10, 0)
 )
 rownames(max_min) <- c("Max", "Min")
 
@@ -216,7 +263,6 @@ df
 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
 # Plot the data for student 1
-library(fmsb)
 student1_data <- df[c("Max", "Min", "Student.1"), ]
 radarchart(student1_data)
 
@@ -256,6 +302,8 @@ Helper function to produce a beautiful radar chart:
 
 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
+library(scales)
+
 create_beautiful_radarchart <- function(data, color = "#00AFBB", 
                                         vlabels = colnames(data), vlcex = 0.7,
                                         caxislabels = NULL, title = NULL, ...){
@@ -279,10 +327,13 @@ create_beautiful_radarchart <- function(data, color = "#00AFBB",
 In the code above, we used the function alpha() [in scales package] to change the polygon fill color transparency.
 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
+
 # Reduce plot margin using par()
 op <- par(mar = c(1, 2, 2, 1))
-create_beautiful_radarchart(student1_data, caxislabels = c(0, 5, 10, 15, 20))
-par(op)
+
+create_beautiful_radarchart(student1_data, caxislabels = c(0, 2.5, 5, 7.5, 10))
+
+par(op) # This line restores the original graphical parameters
 
 
 ```
@@ -297,17 +348,25 @@ Create the radar chart of the three students on the same plot:
 
 # Reduce plot margin using par()
 op <- par(mar = c(1, 2, 2, 2))
+
 # Create the radar charts
 create_beautiful_radarchart(
-  data = df, caxislabels = c(0, 5, 10, 15, 20),
+  data = df, caxislabels = c(0, 2.5, 5, 7.5, 10),
   color = c("#00AFBB", "#E7B800", "#FC4E07")
 )
+
 # Add an horizontal legend
-legend(
-  x = "topright", legend = rownames(df[-c(1,2),]), horiz = FALSE,
-  bty = "n", pch = 20 , col = c("#00AFBB", "#E7B800", "#FC4E07"),
-  text.col = "black", cex = 1, pt.cex = 1.5
-)
+legend( x = "topright", 
+        legend = rownames(df[-c(1,2),]), 
+        horiz = FALSE,
+        bty = "n", 
+        pch = 10 , 
+        col = c("#00AFBB", "#E7B800", "#FC4E07"),
+        text.col = "black", 
+        cex = 1, 
+        pt.cex = 1.5)
+
+# Close the plot and reset graphical parameters
 par(op)
 
 ```
@@ -323,11 +382,11 @@ In the legend() function of ggplot2, you can specify the position of the legend 
 *    "bottomleft": Positions the legend in the bottom left corner of the plot.
 *    "bottomright": Positions the legend in the bottom right corner of the plot.
 
-*c(x_coordinate, y_coordinate): Allows you to specify custom coordinates for the legend. You can provide the x and y coordinates as numeric values.*
+c(x_coordinate, y_coordinate): Allows you to specify custom coordinates for the legend. You can provide the x and y coordinates as numeric values.
 
-*For example, if you want to place the legend on the top right corner of the plot, you can use legend(x = "topright"). Similarly, if you want to specify custom coordinates, you can use legend(x = 0.8, y = 0.2) to position the legend at the coordinates (0.8, 0.2) within the plot.*
+For example, if you want to place the legend on the top right corner of the plot, you can use legend(x = "topright"). Similarly, if you want to specify custom coordinates, you can use legend(x = 0.8, y = 0.2) to position the legend at the coordinates (0.8, 0.2) within the plot.
 
-*These different positions give you flexibility in placing the legend in various parts of the plot depending on your visualization requirements.*
+These different positions give you flexibility in placing the legend in various parts of the plot depending on your visualization requirements.
 
 
 **Create separated spider charts for each individual. This is recommended when you have more than 3 series.**
@@ -336,7 +395,6 @@ In the legend() function of ggplot2, you can specify the position of the legend 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
 
 # Define colors and titles
-
 colors <- c("#00AFBB", "#E7B800", "#FC4E07")
 titles <- c("Student.1", "Student.2", "Student.3")
 
@@ -348,8 +406,10 @@ par(mfrow = c(1,3))
 # Create the radar chart
 for(i in 1:3){
   create_beautiful_radarchart(
-    data = df[c(1, 2, i+2), ], caxislabels = c(0, 5, 10, 15, 20),
-    color = colors[i], title = titles[i]
+    data = df[c(1, 2, i+2), ], 
+    caxislabels = c(0, 2.5, 5, 7.5, 10),
+    color = colors[i], 
+    title = titles[i]
   )
 }
 par(op)
@@ -367,16 +427,18 @@ Radar charts are most useful if the profile of every individual is compared to a
 
 # Create a demo data containing exam scores for 10 students:
 
-set.seed(123)
+set.seed(123) # To set the randomization of values
+
 df <- as.data.frame(
-  matrix(sample(2:20 , 90 , replace = TRUE),
+  matrix(sample(2:10 , 90 , replace = TRUE),
          ncol=9, byrow = TRUE)
 )
 
-# In this example the matrix we build up has a vote (variable) between 2 and 20,
+# In this example the matrix we build up has a vote (variable) between 1 and 10,
 # x90 times (total votes=values 10 student x9 subjects), replace the value in 
 # the empty matrix. ncol = at the number of subject (9), order the frame by 
 # number of rows of the data frame = 10!
+
 df 
 
 colnames(df) <- c(
@@ -386,10 +448,6 @@ colnames(df) <- c(
 rownames(df) <- paste0("Student.", 1:nrow(df))
 head(df)
 
-# Give the name based on a root = Student and adding the row number from 1 to 
-# end (10), Same is giving the name of the subject per every column
-
-
 ```
 
 
@@ -397,28 +455,32 @@ head(df)
 
 The provided code performs the following operations:
 
-* df_scaled <- round(apply(df, 2, scales::rescale), 2):*This line scales the columns of the data frame df using the scales::rescale function from the scales package. The apply() function is used to apply the scaling operation column-wise (2 indicates columns) on the data frame. The rescale function scales the values of each column to a new range (usually between 0 and 1). The resulting scaled values are then rounded to two decimal places using the round() function. The scaled values are assigned to a new data frame called df_scaled.*
+* `df_scaled <- round(apply(df, 2, scales::rescale), 2)`: *This line scales the columns of the data frame df using the scales::rescale function from the scales package. The apply() function is used to apply the scaling operation column-wise (2 indicates columns) on the data frame. The rescale function scales the values of each column to a new range (usually between 0 and 1). The resulting scaled values are then rounded to two decimal places using the round() function. The scaled values are assigned to a new data frame called df_scaled.*
 
-* df_scaled <- as.data.frame(df_scaled): *This line converts the df_scaled object (which was previously a matrix resulting from the apply function) into a data frame. This step is done to ensure that the resulting object is in the desired data frame format.*
+* `df_scaled <- as.data.frame(df_scaled)`: *This line converts the df_scaled object (which was previously a matrix resulting from the apply function) into a data frame. This step is done to ensure that the resulting object is in the desired data frame format.*
 
-* head(df_scaled): *This line displays the first few rows of the df_scaled data frame, allowing you to inspect the scaled values.*
+* `head(df_scaled)`: *This line displays the first few rows of the df_scaled data frame, allowing you to inspect the scaled values.*
 
 In summary, the code scales the columns of the original data frame df using the rescale function, rounds the scaled values, converts the result into a data frame, and then displays the first few rows of the scaled data frame. This is often done to normalize or standardize the values in a dataset, making them comparable or easier to interpret.
 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
+# Scales each column to the range [0, 1]
+df_scaled <- round(apply(df, 2, scales::rescale), 2) 
 
-library(scales)
-df_scaled <- round(apply(df, 2, scales::rescale), 2)
-df_scaled <- as.data.frame(df_scaled)
+# Structure as a data frame
+df_scaled <- as.data.frame(df_scaled) 
+
 head(df_scaled)
 
 ```
 
 To scale the data between 0 and 9 instead of the default range (usually 0 to 1), you can modify the code as follows:
 
-*df_scaled <- round(apply(df, 2, function(x) scales::rescale(x, to = c(0, 9))), 2)*
-*df_scaled <- as.data.frame(df_scaled)*
-*head(df_scaled)*
+`df_scaled <- round(apply(df, 2, function(x) scales::rescale(x, to = c(0, 9))), 2)`
+
+`df_scaled <- as.data.frame(df_scaled)`
+
+`head(df_scaled)`
 --------------------------------------------------------------------------------
 
 
@@ -451,6 +513,7 @@ opar <- par()
 # Define settings for plotting in a 3x4 grid, with appropriate margins:
 par(mar = rep(0.8,4))
 par(mfrow = c(3,4))
+
 # Produce a radar-chart for each student
 for (i in 4:nrow(df_scaled2)) {
   radarchart(
@@ -494,9 +557,14 @@ Overall, this code generates a grid of radar charts, with each chart representin
 
 **ggplot radar chart using the ggradar R package**
 
-Prerequisites
+Prerequisites: 
+
+`install.packages("devtools")`
+`devtools::install_github("ricardo-bion/ggradar", dependencies = TRUE)`
+
 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
+
 library (ggradar)
 
 ```
@@ -520,8 +588,9 @@ All variables in the data should be at the same scale. If this is not the case, 
 For example, you can rescale the variables to have a minimum of 0 and a maximum of 1 using the function `rescale()` [scales package]. We’ll describe this method in the next sections.
 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
-# Put row names into  a column named group
 library(tidyverse)
+
+# Put row names into  a column named group
 df <- exam_scores %>% rownames_to_column("group")
 df
 
@@ -534,8 +603,8 @@ df
 # Plotting student 1
 ggradar(
   df[1, ], 
-  values.radar = c("0", "10", "20"),
-  grid.min = 0, grid.mid = 10, grid.max = 20
+  values.radar = c("0", "5", "10"),
+  grid.min = 0, grid.mid = 5, grid.max = 10
 )
   
 
@@ -549,8 +618,8 @@ Key arguments to customize the different components of the ggplot radar chart. F
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
 ggradar(
   df[1, ], 
-  values.radar = c("0", "10", "20"),
-  grid.min = 0, grid.mid = 10, grid.max = 20,
+  values.radar = c("0", "5", "10"),
+  grid.min = 0, grid.mid = 5, grid.max = 10,
   # Polygons
   group.line.width = 1, 
   group.point.size = 3,
@@ -569,8 +638,8 @@ Create the radar chart of the three students on the same plot:
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
 ggradar(
   df, 
-  values.radar = c("0", "10", "20"),
-  grid.min = 0, grid.mid = 10, grid.max = 20,
+  values.radar = c("0", "5", "10"),
+  grid.min = 0, grid.mid = 5, grid.max = 10,
   # Polygons
   group.line.width = 1, 
   group.point.size = 3,
@@ -590,7 +659,6 @@ A circular plot is difficult to read. An alternative to a radar chart is an orde
 Load required packages:
 
 ```{r, eval = TRUE, echo = TRUE, message=FALSE, warning=FALSE}
-library(tidyverse)
 library(ggpubr)
 
 ```
@@ -714,13 +782,6 @@ ggparcoord(
 Note that, the default of the function ggparcoord() is to rescale each variable by subtracting the mean and dividing by the standard deviation.  
 
 
-________________________________________________________________________________
-
-.                                      **END**                                 .
-
-________________________________________________________________________________
-
-
-```{r, message=FALSE}
+```{r, message=TRUE}
 sessionInfo()
 ```
